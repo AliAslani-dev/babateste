@@ -1,0 +1,1 @@
+export { default as CourseDetail } from "./components/CourseDetail/CourseDetails";

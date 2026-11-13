@@ -1,0 +1,1 @@
+export{toUpdatePersonalInformation}from "./profile.mappers"

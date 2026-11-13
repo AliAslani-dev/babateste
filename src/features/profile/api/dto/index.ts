@@ -1,0 +1,1 @@
+export type {UpdatePersonalInformationResponseDto} from "./profile.dto"

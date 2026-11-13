@@ -1,0 +1,1 @@
+export type{UpdatePersonalInformationPayload}from "./profile.payloads"

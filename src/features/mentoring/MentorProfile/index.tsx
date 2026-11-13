@@ -1,0 +1,1 @@
+export { default as MentorProfile } from "./components/MentorDetail/MentorDetail";

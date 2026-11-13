@@ -1,0 +1,1 @@
+export { default as SuccessRegistration } from "./registration-success/RegistrationSuccessPage";

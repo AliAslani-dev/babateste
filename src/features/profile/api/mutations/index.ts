@@ -1,0 +1,1 @@
+export {useUpdatePersonalInformation}from "./Profile.hooks"

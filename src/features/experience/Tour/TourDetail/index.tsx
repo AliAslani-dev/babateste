@@ -1,0 +1,1 @@
+export { default as TourDetail } from "./components/TourDetails/TourDetails";

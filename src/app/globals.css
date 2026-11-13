@@ -1,0 +1,227 @@
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL STYLES — PWA Optimized
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* ─── Layout Tokens ─── */
+  --app-max-width: 480px;
+  --bottom-nav-height: 77px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  color-scheme: light dark;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  position: fixed;
+  inset: 0;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-iran-yekan), system-ui, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INPUT MOBILE FIXES
+   ═══════════════════════════════════════════════════════════ */
+
+/* ✅ استثنا: input ها انتخاب‌پذیر و قابل لمس */
+input,
+textarea,
+select,
+[contenteditable="true"],
+.selectable {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  touch-action: auto !important;
+  pointer-events: auto !important;
+  cursor: text;
+}
+
+/* ✅ جلوگیری از iOS Zoom — font-size ≥ 16px روی موبایل */
+@media screen and (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+/* ✅ iOS specific */
+@supports (-webkit-touch-callout: none) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+/* ✅ Autofill — هماهنگ با design system */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #09090b !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (prefers-color-scheme: dark) {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #0a0a0a inset !important;
+    -webkit-text-fill-color: #ededed !important;
+  }
+}
+
+/* ✅ Number input — حذف spinner */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* ✅ Search input — حذف دکمه clear پیش‌فرض Safari */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ✅ Date/Time — هماهنگی */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover,
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* ✅ Placeholder */
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  color: #71717b;
+}
+
+/* ✅ Focus */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PWA STANDALONE
+   ═══════════════════════════════════════════════════════════ */
+@media all and (display-mode: standalone) {
+  body {
+    overscroll-behavior-y: none;
+  }
+
+  input:focus,
+  textarea:focus {
+    scroll-margin-bottom: 120px;
+    scroll-margin-top: 80px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GENERAL ELEMENTS
+   ═══════════════════════════════════════════════════════════ */
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   APP SCROLL CONTAINER
+   ═══════════════════════════════════════════════════════════ */
+.app-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.app-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+.safe-top {
+  padding-top: var(--safe-top);
+}
+.safe-bottom {
+  padding-bottom: var(--safe-bottom);
+}

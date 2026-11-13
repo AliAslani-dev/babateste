@@ -1,0 +1,1 @@
+export { default as RequestConsultation } from "./components/RequestConsultationPage";

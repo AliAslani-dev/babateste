@@ -1,0 +1,8 @@
+export {eventsService}from "./AllEvents.service"
+export {EventCommentService}from "./EventComment.service"
+export {EventFavoriteService}from"./EventFavorites.service"
+export {myEventsService}from "./MyEvents.service"
+export {TourCommentService}from "./TourComment.service"
+export {TourFavoriteService}from"./TourFavorites.service"
+export {tourService}from "./TourList.service"
+export {registrationService}from "./TourRegistration.service"
